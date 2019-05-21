@@ -1,28 +1,26 @@
 package Ex3;
 
 import java.io.BufferedWriter;
-import java.io.FileOutputStream;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.concurrent.ExecutionException;
+import java.io.LineNumberReader;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-
-import javax.sound.sampled.Line;
 
 
 public class Ex3B {
 	static String arr[];
 	static int index=0;
-	///static long final_time;
 	static int numOfLines = 0;
-	//return array
+
 	public static String[] createFiles(int n) {
 		index=n;
 		arr = new String[index];
 		String fileName="";
-		for (int i = 0; i < arr.length; i++) {
+		for (int i = 0; i <arr.length; i++) {
 			fileName = "File_"+i;
 			arr[i] = fileName;
 			try {
@@ -31,7 +29,7 @@ public class Ex3B {
 				int getRandomNum = (int) (Math.random()*10);
 				numOfLines=numOfLines+getRandomNum;
 				for (int j = 0; j <getRandomNum; j++) {
-					out.write(("HelloWorld"));
+					out.write("HelloWorld");
 					out.newLine();
 				}
 				out.close();
@@ -53,6 +51,10 @@ public class Ex3B {
 				}
 			}
 		}
+		for (int i = 0; i < arr.length; i++) {
+			if(arr[i]!=null) return;
+		}
+		arr=null;
 	}
 	public static void countLinesThreads(int numFiles) {
 		createFiles(numFiles);
@@ -105,10 +107,49 @@ public class Ex3B {
 		deleteFiles(arr);
 	}
 
+
+	public static void countLinesOneProcess(int numFiles) {
+		int linenumber_ThreadPool = 0;
+		long final_time=0;
+		long start=0;
+		createFiles(numFiles);
+		try{
+			start=System.currentTimeMillis();
+			for (int i = 0; i < arr.length; i++) {
+
+				//String file_Name = "File_"+i;
+				File file =new File(arr[i]);
+
+				if(file.exists()){
+
+					FileReader fr = new FileReader(file);
+					LineNumberReader lnr = new LineNumberReader(fr);
+
+					while (lnr.readLine() != null){
+						linenumber_ThreadPool++;
+					}
+					lnr.close();
+
+				}else{
+					System.out.println("File does not exists!");
+				}
+			}
+			long end=System.currentTimeMillis();
+			final_time =final_time+ (end-start);
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		System.out.println("countLinesThreadPool numOfLines: "+linenumber_ThreadPool);
+		System.out.println("countLinesThreadPool final_time:" + final_time);
+		deleteFiles(arr);
+	}
 	public static void main(String[] args) {
-		//createFiles(1);
-	//	countLinesThreads(60);
-		countLinesThreadPool(60);
+
+		countLinesThreads(10);
+		countLinesThreadPool(10);
+		countLinesOneProcess(10);
 	}
 
 }

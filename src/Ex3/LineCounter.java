@@ -72,9 +72,6 @@ class ThreadPool implements Callable<Integer>{
 				while (lnr.readLine() != null){
 					linenumber_ThreadPool++;
 				}
-
-				//	System.out.println("Total number of lines : " + linenumber_ThreadPool);
-
 				lnr.close();
 
 			}else{
@@ -87,6 +84,7 @@ class ThreadPool implements Callable<Integer>{
 
 		return linenumber_ThreadPool;
 	}
+	
 
 }
 

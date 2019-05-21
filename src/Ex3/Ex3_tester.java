@@ -1,15 +1,15 @@
 package Ex3;
 
-public class Ex3A_tester {
+public class Ex3_tester {
 	/** This class represents a basic implementation for Ex3testing file. */
 	public static double ENDLESS_LOOP=0.4;
 	public static void main(String[]args){
-		Ex3A ex3a=new Ex3A();
+		Ex3 ex3a=new Ex3();
 		long n=33333331;
 		boolean ans=ex3a.isPrime(n,0.01);
 		System.out.println("n="+n+" isPrime "+ans);
 	}
-	
+
 	/** DONOT change this function!,it must be used
 	 * byEx3A-isPrime(long,double)
 	 */
@@ -22,7 +22,7 @@ public class Ex3A_tester {
 			if (n%i==0) ans=false;
 			i=i+1;
 		}
-		if(Math.random()<Ex3A_tester.ENDLESS_LOOP)while(true);
+		if(Math.random()<Ex3_tester.ENDLESS_LOOP)while(true);
 		return ans;
 	}
 }
