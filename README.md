@@ -13,7 +13,7 @@ The program print tootal line numbers and running time.
 The program deleet all created files.
 
 ##Built With
-*[Project site](https://github.com/mulugetaf/oopEx3)
+* [Project site](https://github.com/mulugetaf/oopEx3)
 * [Reference source](https://stackoverflow.com/questions/200469/what-is-the-difference-between-a-process-and-a-thread)
 * [Reference source](https://stackoverflow.com/questions/50542940/java-stop-an-endless-loop-function-by-a-thread)
 
