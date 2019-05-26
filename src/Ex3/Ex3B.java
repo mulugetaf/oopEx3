@@ -252,7 +252,7 @@ A thread is a subtype of process.
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		countLinesThreads(1000);
 		countLinesThreadPool(1000);
-				countLinesOneProcess(1000);
+		countLinesOneProcess(1000);
 	}
 
 }

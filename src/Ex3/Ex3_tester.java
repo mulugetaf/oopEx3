@@ -5,7 +5,7 @@ public class Ex3_tester {
 	public static double ENDLESS_LOOP=0.4;
 	public static void main(String[]args){
 		Ex3 ex3a=new Ex3();
-		long n=33333331;
+		long n=33333331;;
 		boolean ans=ex3a.isPrime(n,0.01);
 		System.out.println("n="+n+" isPrime "+ans);
 	}
