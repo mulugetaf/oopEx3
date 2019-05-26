@@ -19,4 +19,4 @@ The program deleet all created files.
 
 ##Example of the program
 * The first program:By givin number 33333331 and 0.01 ms The program return true(isPrime)
-* The second program:
+* The second program:![](images/‏‏לכידה.PNG)
