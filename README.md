@@ -3,7 +3,7 @@ Codding by: Mulugeta
 * Exercise number 3 on Computer Science and Mathematics , Ariel University 2019.
 
 There is two programs that using threads.
-The first program check ikf the giving number is prime or not	within a given time. 
+The first program check if the giving number is prime or not within a given time. 
 If the program success to check that the giving number is prime or not
     within a given time it will return true or false
 Else return RuntimeException.
